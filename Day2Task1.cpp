@@ -2,26 +2,29 @@
 
 using namespace std;
 
-
+// some big number which cannot be exceeded
 int currentMinimalPathDistance = 10000000;
+// starting point
 int firstCity = 0;
 
+// solution for 4 cities/points
 int findShortestPath_4(){
 
   const int numberOfCities = 4;
-
+  // reading input line by line
   int distances[numberOfCities][numberOfCities];
       for (int i = 0; i < numberOfCities; ++i) {
           for (int j = 0; j < numberOfCities; ++j) {
-              scanf("%i", &distances[i][j]);
+              scanf("%i", &distances[i][j]); // i said integer
           }
       }
 
   for(int secondCity = 1; secondCity <= numberOfCities - 1; secondCity++){
     for(int thirdCity = 1; thirdCity <= numberOfCities - 1; thirdCity++){
+      // avoiding having same cities in the set
       if(thirdCity == secondCity){
         
-        continue;
+        continue; // continue with i++ iteration
       }
       for(int fourthCity = 1; fourthCity <= numberOfCities - 1; fourthCity++){
         if(fourthCity == thirdCity || fourthCity == secondCity){
@@ -29,7 +32,9 @@ int findShortestPath_4(){
           continue;
         }
           
+          
           int currentPathDistance = 0;
+          // sum of distances
           currentPathDistance += distances[firstCity][secondCity];
           currentPathDistance += distances[secondCity][thirdCity];
           currentPathDistance += distances[thirdCity][fourthCity];        
