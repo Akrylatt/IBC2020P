@@ -61,7 +61,7 @@ bool checkPositions_Diagonal(){
         return(true);
       }
     }
-    return(false);
+    
   }
   
   return(false);
